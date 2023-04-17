@@ -165,7 +165,7 @@ const login = () => {
     movementsSorted = [];
     datesUnsorted = [];
     datesSorted = [];
-    changeCurrency();
+    // changeCurrency();
   } else return;
 };
 
@@ -187,12 +187,13 @@ const changeCurrency = () => {
   const euroToUsd = 1.11;
   if (currentAccount.currency === "PLN")
     currentAccount.movements = currentAccount.movements.map((mov) =>
-      Math.floor((mov *= euroToPln))
+      Math.round((mov *= euroToPln))
     );
   if (currentAccount.currency === "USD")
     currentAccount.movements = currentAccount.movements.map((mov) =>
-      Math.floor((mov *= euroToUsd))
+      Math.round((mov *= euroToUsd))
     );
+  isCurrencyChanged = true;
 };
 
 // Check currency symbol
